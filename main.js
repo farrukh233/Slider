@@ -3,7 +3,7 @@ const prev = document.getElementById('btn-prev'),
       slides = document.querySelectorAll('.slide'),
       dots = document.querySelectorAll('.dot');
 
-let index = 0;
+let index = 0; // по индексу ориентируемся на каком слайде находимся
 
 const activeSlide = n => {
     for (slide of slides){
@@ -19,12 +19,10 @@ const activeDot = n => {
     dots[n].classList.add('active');
 }
 
-
 const prepareCurrentSlide = () => {
     activeDot(index);
     activeSlide(index);
 }
-
 
 const nextSlide = () => {
     if(index == slides.length - 1){
@@ -54,7 +52,6 @@ const prevSlide = () => {
     }
 }
 
-
 dots.forEach((item, indexDot)=> {
     item.addEventListener('click', () => {
         index = indexDot;
@@ -63,12 +60,7 @@ dots.forEach((item, indexDot)=> {
     })
 })
 
-
 next.addEventListener('click', nextSlide);
 prev.addEventListener('click', prevSlide);
 
 setInterval(nextSlide, 2000);
-
-
-
-console.log(3+'3');
